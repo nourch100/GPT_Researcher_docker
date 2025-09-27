@@ -1,7 +1,7 @@
 services:
   backend:
     build:
-      context: ./backend
+      context: ./GPT_Researcher_backend
     container_name: gptr_backend
     ports:
       - "8000:8000"
@@ -12,16 +12,16 @@ services:
       GOOGLE_API_KEY: ${GOOGLE_API_KEY}
       TAVILY_API_KEY: ${TAVILY_API_KEY}
     volumes:
-      - ./backend:/app
+      - ./GPT_Researcher_backend:/app
 
   frontend:
     build:
-      context: ./frontend
+      context: ./GPT_Researcher_frontend
     container_name: gptr_frontend
     ports:
       - "3000:3000"
     depends_on:
       - backend
     volumes:
-      - ./frontend:/app
+      - ./GPT_Researcher_frontend:/app
   

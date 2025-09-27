@@ -23,7 +23,7 @@ To set up the project, follow these steps:
    ```
 2. Navigate to the project directory:
    ```bash
-   cd [repository_name]
+   cd GPT_Researcher_docker/
    ```
 3. Ensure the docker-compose.yaml file is present in the repository
 4. create a .env file and add the variables : 
@@ -33,38 +33,42 @@ To set up the project, follow these steps:
     OPENAI_API_KEY=""
     GOOGLE_API_KEY=""
     MISTRAL_API_KEY=""
-        ```
-5. The repository includes empty backend and frontend directories for backend and frontend development. Clone or initialize them as needed. 
+
+    ```
+5. Clone the frontend and backend repositories inside the docker directory
     ```bash
-    git clone [backend_package_url] ./backend
+    git clone [backend_package_url] 
     ```
     ```bash
-    git clone [frontend_package_url] ./frontend
+    git clone [frontend_package_url] 
     ```
 Make sure after you clone, your folder structure looks like this
 ```
-docker_GPTR/
-├── backend/
+GPT_Researcher_docker/
+├── GPT_Researcher_backend/
 │   ├── app/
 │   ├── Dockerfile
 │   └── requirements.txt
-├── frontend/
+├── GPT_Researcher_frontend/
 │   ├── app/
 │   ├── Dockerfile
 │   ├── package.json
 │   └── next.config.js
 └── docker-compose.yml
 ```
-6. Build and run inside a container:
+6. Build the containers:
 ```bash
-docker compose up --build
+docker compose build
 ```
-
-7. Stop containers:
+7. Start the containers:
+```bash
+docker compose up
+```
+8. Stop containers:
 ```bash
 docker compose down
 ```
-8. Check logs:
+9. Check logs:
 ```bash
 docker compose logs -f
 ```
